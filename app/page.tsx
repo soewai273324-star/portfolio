@@ -112,7 +112,7 @@ const socialLinks = [
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-[#11110f] text-white">
-      <div className="mx-auto min-h-screen w-full max-w-[1180px] overflow-hidden border-x border-white/5 bg-[#0b0b09]">
+      <div className="min-h-screen w-full overflow-hidden bg-[#0b0b09]">
         <section className="relative overflow-hidden px-6 pb-0 pt-6 sm:px-10 lg:px-14 lg:pt-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,203,5,0.12),transparent_28%),radial-gradient(circle_at_top_right,rgba(255,203,5,0.08),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_34%)]" />
 
