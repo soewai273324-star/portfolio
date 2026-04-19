@@ -118,10 +118,12 @@ export default function Home() {
 
                 <a
                   href="#projects"
-                  className="mt-8 inline-flex items-center gap-3 rounded-[8px] bg-[#ffcb05] px-7 py-4 text-base font-semibold text-black transition hover:bg-[#ffd83d]"
+                  className="mt-8 inline-flex items-center gap-3 rounded-[8px] bg-[#ffcb05] px-7 py-4 text-base font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
                 >
-                  Start a Project Now
-                  <span aria-hidden="true">↗</span>
+                  <span className="!text-black">Start a Project Now</span>
+                  <span aria-hidden="true" className="!text-black">
+                    ↗
+                  </span>
                 </a>
               </div>
             </div>
@@ -238,10 +240,12 @@ export default function Home() {
             <a
               href="/MATV Engineer_SoeWai.pdf"
               download
-              className="inline-flex items-center gap-3 rounded-[8px] bg-[#ffcb05] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#ffd83d]"
+              className="inline-flex items-center gap-3 rounded-[8px] bg-[#ffcb05] px-6 py-3 text-sm font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
             >
-              Download CV
-              <span aria-hidden="true">↓</span>
+              <span className="!text-black">Download CV</span>
+              <span aria-hidden="true" className="!text-black">
+                ↓
+              </span>
             </a>
           </div>
         </section>
