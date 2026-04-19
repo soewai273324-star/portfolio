@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const navItems = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
@@ -100,6 +102,13 @@ const education = [
   },
 ];
 
+const socialLinks = [
+  { href: "https://www.facebook.com", label: "f" },
+  { href: "https://www.instagram.com", label: "ig" },
+  { href: "https://www.linkedin.com/in/soewai", label: "in" },
+  { href: "https://x.com", label: "x" },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-[#11110f] text-white">
@@ -141,36 +150,23 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-10 grid gap-10 pb-4 lg:grid-cols-[290px_minmax(0,1fr)] lg:items-center">
-              <div className="relative mx-auto w-full max-w-[260px] rounded-[22px] border border-white/10 bg-[#111111] p-4">
-                <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(#ffffff_0.8px,transparent_0.8px)] [background-size:6px_6px]" />
-                <div className="relative flex aspect-[4/4.9] flex-col justify-between overflow-hidden rounded-[18px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,203,5,0.16),rgba(255,203,5,0)_40%),linear-gradient(145deg,#181818,#0a0a0a)] p-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.22em] text-[#ffcb05]">
-                      MATV Engineer
-                    </p>
-                    <p className="mt-3 max-w-[130px] text-sm leading-6 text-white/68">
-                      Broadcast systems, server operations, and infrastructure support.
-                    </p>
-                  </div>
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <p className="text-3xl font-semibold tracking-[-0.05em] text-white">
-                        Soe Wai
-                      </p>
-                      <p className="mt-1 text-sm text-white/55">
-                        Bangkok, Thailand
-                      </p>
-                    </div>
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/12 bg-white/5 text-xl font-semibold text-[#ffcb05]">
-                      SW
-                    </span>
-                  </div>
+            <div className="mt-10 grid gap-10 pb-4 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-center lg:gap-16">
+              <div className="relative mx-auto w-full max-w-[230px]">
+                <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(#ffffff_0.8px,transparent_0.8px)] [background-size:6px_6px]" />
+                <div className="relative aspect-[4/4.7] overflow-hidden border border-white/6 bg-[#101010]">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Soe Wai profile photo"
+                    fill
+                    priority
+                    className="object-cover object-center"
+                    sizes="(max-width: 1024px) 230px, 230px"
+                  />
                 </div>
               </div>
 
-              <div className="max-w-[560px] pb-2 lg:ml-4">
-                <p className="text-lg leading-8 text-white/86 sm:text-xl">
+              <div className="max-w-[520px] pb-2">
+                <p className="text-lg leading-8 text-white/86 sm:text-[1.45rem] sm:leading-10">
                   Welcome to my portfolio. I&apos;m Soe Wai, a MATV engineer and
                   technical specialist with more than 14 years of experience. I
                   manage broadcast systems, maintain Linux servers, and solve
@@ -186,14 +182,6 @@ export default function Home() {
                     <span aria-hidden="true" className="!text-black">
                       ↗
                     </span>
-                  </a>
-
-                  <a
-                    href="#about"
-                    className="inline-flex items-center gap-3 rounded-[10px] border border-white/12 bg-white/4 px-6 py-4 text-sm font-medium text-white transition hover:border-white/25 hover:bg-white/6"
-                  >
-                    <span>About Me</span>
-                    <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
@@ -325,7 +313,7 @@ export default function Home() {
                 <p className="text-xl font-medium text-white">About Me</p>
               </div>
               <h2 className="mt-6 max-w-[560px] text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
-                Keeping broadcast and server systems running without interruption.
+                Broadcast &amp; Linux engineer focused on stable systems and fast technical support.
               </h2>
               <div className="mt-6 max-w-[560px] space-y-5 text-base leading-8 text-white/72">
                 <p>
@@ -342,7 +330,8 @@ export default function Home() {
               </div>
 
               <a
-                href="#contact"
+                href="/MATV Engineer_SoeWai.pdf"
+                download
                 className="mt-8 inline-flex items-center gap-3 rounded-[10px] bg-[#ffcb05] px-6 py-3 text-sm font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
               >
                 <span className="!text-black">Download Resume</span>
@@ -352,19 +341,42 @@ export default function Home() {
               </a>
             </div>
 
-            <aside className="rounded-[24px] border border-white/10 bg-[#111111]">
-              <div className="relative overflow-hidden rounded-t-[24px] border-b border-white/10 bg-[linear-gradient(180deg,rgba(255,203,5,0.14),rgba(255,203,5,0)_42%),linear-gradient(145deg,#181818,#0a0a0a)] px-6 py-8">
-                <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(#ffffff_0.8px,transparent_0.8px)] [background-size:8px_8px]" />
-                <div className="relative flex flex-col items-center text-center">
-                  <span className="flex h-28 w-28 items-center justify-center rounded-full border border-white/10 bg-black/30 text-3xl font-semibold text-[#ffcb05]">
-                    SW
-                  </span>
-                  <p className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-white">
+            <aside className="overflow-hidden rounded-[24px] border border-white/10 bg-[#111111]">
+              <div className="relative border-b border-white/10 bg-[linear-gradient(180deg,rgba(255,203,5,0.08),rgba(255,203,5,0)_30%),linear-gradient(145deg,#181818,#0a0a0a)]">
+                <div className="relative aspect-[4/4.6]">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Soe Wai portrait"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b09]/80 via-transparent to-transparent" />
+                </div>
+                <div className="relative px-6 pb-5 pt-5 text-center">
+                  <p className="text-2xl font-semibold tracking-[-0.04em] text-white">
                     Soe Wai
                   </p>
                   <p className="mt-2 text-sm text-white/55">
                     MATV Engineer &amp; Technical Specialist
                   </p>
+                </div>
+              </div>
+
+              <div className="border-b border-white/10 px-6 py-5 text-center">
+                <div className="flex justify-center gap-3">
+                  {socialLinks.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.label}
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold uppercase text-white/70 transition hover:border-white/20 hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
                 </div>
               </div>
 
