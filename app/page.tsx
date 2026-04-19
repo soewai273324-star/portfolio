@@ -1,4 +1,11 @@
-import Image from "next/image";
+const navItems = [
+  { href: "#home", label: "Home" },
+  { href: "#projects", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
+  { href: "#contact", label: "Contact" },
+];
 
 const tags = ["#BROADCAST", "#LINUX SYSTEMS", "#SERVER OPS", "#TECH SUPPORT"];
 
@@ -12,77 +19,118 @@ const testimonials = [
 const projects = [
   {
     title: "Server Room Infrastructure",
-    image: "/workimage/viber_image_1.jpg",
+    label: "Featured Project",
     description:
-      "Hands-on maintenance and organization of rack systems, server hardware, and operational cabling.",
+      "Rack organization, hardware maintenance, and operational checks that help keep engineering environments stable and service-ready.",
   },
   {
     title: "Broadcast Equipment Setup",
-    image: "/workimage/viber_image_2025-03-21_14-04-21-053.jpg",
+    label: "System Setup",
     description:
-      "Installation and maintenance work across Dell EMC systems, monitoring devices, and technical equipment.",
+      "Installation support for monitoring devices, broadcast hardware, and critical technical equipment used in day-to-day operations.",
   },
   {
-    title: "Satellite and Signal Environment",
-    image: "/workimage/viber_image_2025-03-21_14-06-33-089.jpg",
+    title: "Satellite and Signal Workflow",
+    label: "Field Support",
     description:
-      "Field-side infrastructure involving satellite systems and technical support for reliable signal workflows.",
+      "Technical support around signal environments, satellite workflows, and issue response for reliable service continuity.",
   },
   {
     title: "Monitoring Architecture",
-    image: "/workimage/Capture.PNG",
+    label: "Diagram Review",
     description:
-      "A visual breakdown of receiver, switch, splitter, and grabber connections used in monitoring operations.",
+      "Receiver, switch, splitter, and grabber workflow mapping for clearer maintenance, troubleshooting, and system visibility.",
   },
   {
     title: "Channel Connection Layout",
-    image: "/workimage/Capture1.PNG",
+    label: "Cable Routing",
     description:
-      "Signal and cable routing diagram that supports structured channel management and technical troubleshooting.",
+      "Structured connection planning that supports clean routing, easier tracing, and dependable channel management.",
   },
 ];
 
-const stats = [
-  { value: "100+", label: "TV channels monitored" },
-  { value: "10+", label: "Years in team leadership" },
-  { value: "99.9%", label: "Operational uptime" },
+const experiences = [
+  {
+    title: "MATV Engineering",
+    company: "Broadcast Operations",
+    period: "14+ Years",
+    description:
+      "Maintaining broadcast systems, resolving service-impacting issues, and supporting daily operations across critical environments.",
+  },
+  {
+    title: "Server Room Maintenance",
+    company: "Infrastructure Support",
+    period: "100+ Channels",
+    description:
+      "Handling rack systems, hardware organization, and facility support tasks that improve reliability and operational order.",
+  },
+  {
+    title: "Technical Troubleshooting",
+    company: "Monitoring and Response",
+    period: "99.9% Uptime",
+    description:
+      "Diagnosing Linux, monitoring, and infrastructure issues quickly to keep systems efficient, stable, and available.",
+  },
+];
+
+const education = [
+  {
+    title: "Broadcast Systems Training",
+    subtitle: "Practical engineering development",
+    description:
+      "Hands-on learning across monitoring workflows, signal handling, and operational broadcast support.",
+  },
+  {
+    title: "Linux Server Administration",
+    subtitle: "Applied technical knowledge",
+    description:
+      "System maintenance, issue analysis, and day-to-day support work for dependable server operations.",
+  },
+  {
+    title: "Electrical and Cooling Support",
+    subtitle: "Infrastructure fundamentals",
+    description:
+      "Working knowledge of equipment environments, power-related checks, and cooling support inside technical rooms.",
+  },
+  {
+    title: "Team Leadership",
+    subtitle: "Operational coordination",
+    description:
+      "Experience guiding work, supporting teams, and helping maintain consistency across demanding technical tasks.",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full bg-[#0b0b09] text-white">
-      <div className="min-h-screen w-full overflow-hidden bg-[#0b0b09]">
+    <main className="min-h-screen w-full bg-[#11110f] text-white">
+      <div className="mx-auto min-h-screen w-full max-w-[1180px] overflow-hidden border-x border-white/5 bg-[#0b0b09]">
         <section className="relative overflow-hidden px-6 pb-0 pt-6 sm:px-10 lg:px-14 lg:pt-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,208,0,0.14),transparent_26%),radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_35%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,203,5,0.12),transparent_28%),radial-gradient(circle_at_top_right,rgba(255,203,5,0.08),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_34%)]" />
 
           <header className="relative flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-3">
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ffcb05] text-xs font-bold text-black">
                 S
               </span>
-              <span className="text-xl font-medium text-white">PortFolio</span>
+              <span className="text-xl font-medium text-white">Portfolio</span>
             </div>
 
             <nav className="flex flex-wrap items-center gap-6 text-[11px] uppercase tracking-[0.2em] text-white/75">
-              <a className="font-semibold text-[#ffcb05]" href="#home">
-                Home
-              </a>
-              <a className="transition hover:text-white" href="#about">
-                About
-              </a>
-              <a className="transition hover:text-white" href="#services">
-                Services
-              </a>
-              <a className="transition hover:text-white" href="#projects">
-                Projects
-              </a>
-              <a className="transition hover:text-white" href="#contact">
-                Contact
-              </a>
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  className={`transition hover:text-white ${
+                    item.href === "#home" ? "font-semibold text-[#ffcb05]" : ""
+                  }`}
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              ))}
             </nav>
           </header>
 
-          <div id="home" className="relative pt-10 sm:pt-14 lg:pt-16">
+          <div id="home" className="relative pb-14 pt-10 sm:pt-14 lg:pt-16">
             <h1 className="text-center text-[52px] font-semibold uppercase leading-none tracking-[-0.06em] text-white sm:text-[86px] lg:text-[118px] xl:text-[136px]">
               SOE WAI
             </h1>
@@ -93,48 +141,71 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-10 grid gap-10 pb-12 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-end">
-              <div className="relative mx-auto w-full max-w-[260px] overflow-hidden rounded-[2px] border border-white/8 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_42%),#111]">
-                <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(#ffffff_0.8px,transparent_0.8px)] [background-size:6px_6px]" />
-                <div className="relative aspect-[4/4.6]">
-                  <Image
-                    src="/profile/profile.jpg"
-                    alt="Soe Wai profile"
-                    fill
-                    priority
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 260px, 320px"
-                  />
+            <div className="mt-10 grid gap-10 pb-4 lg:grid-cols-[290px_minmax(0,1fr)] lg:items-center">
+              <div className="relative mx-auto w-full max-w-[260px] rounded-[22px] border border-white/10 bg-[#111111] p-4">
+                <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(#ffffff_0.8px,transparent_0.8px)] [background-size:6px_6px]" />
+                <div className="relative flex aspect-[4/4.9] flex-col justify-between overflow-hidden rounded-[18px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,203,5,0.16),rgba(255,203,5,0)_40%),linear-gradient(145deg,#181818,#0a0a0a)] p-6">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.22em] text-[#ffcb05]">
+                      MATV Engineer
+                    </p>
+                    <p className="mt-3 max-w-[130px] text-sm leading-6 text-white/68">
+                      Broadcast systems, server operations, and infrastructure support.
+                    </p>
+                  </div>
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <p className="text-3xl font-semibold tracking-[-0.05em] text-white">
+                        Soe Wai
+                      </p>
+                      <p className="mt-1 text-sm text-white/55">
+                        Bangkok, Thailand
+                      </p>
+                    </div>
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/12 bg-white/5 text-xl font-semibold text-[#ffcb05]">
+                      SW
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="max-w-[520px] pb-2 lg:ml-2">
-                <p className="text-lg leading-8 text-white/88 sm:text-xl">
+              <div className="max-w-[560px] pb-2 lg:ml-4">
+                <p className="text-lg leading-8 text-white/86 sm:text-xl">
                   Welcome to my portfolio. I&apos;m Soe Wai, a MATV engineer and
                   technical specialist with more than 14 years of experience. I
                   manage broadcast systems, maintain Linux servers, and solve
                   infrastructure issues that keep services stable and efficient.
                 </p>
 
-                <a
-                  href="#projects"
-                  className="mt-8 inline-flex items-center gap-3 rounded-[8px] bg-[#ffcb05] px-7 py-4 text-base font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
-                >
-                  <span className="!text-black">Start a Project Now</span>
-                  <span aria-hidden="true" className="!text-black">
-                    ↗
-                  </span>
-                </a>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center gap-3 rounded-[10px] bg-[#ffcb05] px-7 py-4 text-base font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
+                  >
+                    <span className="!text-black">Start a Project Now</span>
+                    <span aria-hidden="true" className="!text-black">
+                      ↗
+                    </span>
+                  </a>
+
+                  <a
+                    href="#about"
+                    className="inline-flex items-center gap-3 rounded-[10px] border border-white/12 bg-white/4 px-6 py-4 text-sm font-medium text-white transition hover:border-white/25 hover:bg-white/6"
+                  >
+                    <span>About Me</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="grid border-t border-white/10 bg-[#1a1a19] sm:grid-cols-2 xl:grid-cols-4">
+        <section className="grid border-y border-white/10 bg-[#171715] sm:grid-cols-2 xl:grid-cols-4">
           {testimonials.map((quote) => (
             <div
               key={quote}
-              className="border-b border-white/10 px-5 py-4 sm:border-r xl:border-b-0"
+              className="border-b border-white/10 px-5 py-5 sm:border-r xl:border-b-0"
             >
               <p className="text-sm tracking-[0.22em] text-[#ffcb05]">★★★★★</p>
               <p className="mt-2 text-sm italic leading-6 text-white/72">
@@ -144,7 +215,7 @@ export default function Home() {
           ))}
         </section>
 
-        <section id="projects" className="px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
+        <section id="projects" className="px-6 py-14 sm:px-10 lg:px-14">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <span className="text-[#ffcb05]">✦</span>
@@ -158,130 +229,249 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <article className="overflow-hidden rounded-[14px] border border-white/10 bg-[#131313]">
-              <div className="relative aspect-[16/9]">
-                <Image
-                  src={projects[0].image}
-                  alt={projects[0].title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#ffcb05]">
-                  Featured Project
+          <article className="relative mt-8 overflow-hidden rounded-[26px] border border-white/10 bg-[#121212]">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,203,5,0.12),transparent_26%),linear-gradient(135deg,rgba(255,255,255,0.03),transparent_38%)]" />
+            <div className="relative grid gap-8 p-6 lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
+              <div className="max-w-[520px]">
+                <p className="text-xs uppercase tracking-[0.22em] text-[#ffcb05]">
+                  {projects[0].label}
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold text-white">
+                <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
                   {projects[0].title}
                 </h3>
-                <p className="mt-3 max-w-2xl text-base leading-7 text-white/68">
+                <p className="mt-4 text-base leading-7 text-white/68 sm:text-lg">
                   {projects[0].description}
                 </p>
-              </div>
-            </article>
 
-            <div className="grid gap-6">
-              {projects.slice(1, 3).map((project) => (
-                <article
-                  key={project.title}
-                  className="overflow-hidden rounded-[14px] border border-white/10 bg-[#131313]"
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/70">
+                    Cable Management
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/70">
+                    Hardware Support
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/70">
+                    Monitoring
+                  </span>
+                </div>
+
+                <a
+                  href="#contact"
+                  className="mt-8 inline-flex items-center gap-3 rounded-[10px] bg-[#ffcb05] px-6 py-3 text-sm font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
                 >
-                  <div className="relative aspect-[16/10]">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
+                  <span className="!text-black">View Project</span>
+                  <span aria-hidden="true" className="!text-black">
+                    ↗
+                  </span>
+                </a>
+              </div>
+
+              <div className="relative min-h-[280px] overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(145deg,#181818,#0e0e0d)]">
+                <div className="absolute -right-10 top-8 h-40 w-40 rounded-full bg-[#ffcb05]/18 blur-3xl" />
+                <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-white/6 blur-3xl" />
+                <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:34px_34px]" />
+                <div className="absolute inset-x-6 top-8 h-px bg-white/10" />
+                <div className="absolute inset-x-6 bottom-8 h-px bg-white/10" />
+                <div className="relative flex h-full flex-col justify-between p-6">
+                  <span className="w-fit rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/75">
+                    Signal Workflow
+                  </span>
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-sm uppercase tracking-[0.22em] text-white/45">
+                        Reliable systems
+                      </p>
+                      <p className="mt-2 text-4xl font-semibold tracking-[-0.06em] text-white sm:text-5xl">
+                        MATV
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#ffcb05]">
+                      24/7 Support
+                    </span>
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-xl font-semibold text-white">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-white/65">
-                      {project.description}
-                    </p>
-                  </div>
-                </article>
-              ))}
+                </div>
+              </div>
             </div>
+          </article>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {projects.slice(1).map((project) => (
+              <article
+                key={project.title}
+                className="rounded-[22px] border border-white/10 bg-[#121212] p-6 transition hover:border-white/20"
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-[#ffcb05]">
+                  {project.label}
+                </p>
+                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-white/68">
+                  {project.description}
+                </p>
+              </article>
+            ))}
           </div>
         </section>
 
         <section
           id="about"
-          className="grid gap-6 border-t border-white/10 bg-[#0f0f0f] px-6 py-10 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:px-14"
+          className="border-t border-white/10 bg-[#0f0f0f] px-6 py-14 sm:px-10 lg:px-14"
         >
-          <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-[#ffcb05]">
-              About Me
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight text-white sm:text-5xl">
-              Keeping broadcast and server systems running without interruption.
-            </h2>
-          </div>
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_0.78fr] lg:items-start">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="text-[#ffcb05]">✦</span>
+                <p className="text-xl font-medium text-white">About Me</p>
+              </div>
+              <h2 className="mt-6 max-w-[560px] text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
+                Keeping broadcast and server systems running without interruption.
+              </h2>
+              <div className="mt-6 max-w-[560px] space-y-5 text-base leading-8 text-white/72">
+                <p>
+                  I have worked across monitoring systems, Linux servers, server
+                  rooms, electrical support, cooling systems, and technical issue
+                  resolution. My background combines hands-on maintenance with team
+                  leadership and operational responsibility.
+                </p>
+                <p>
+                  I have supported more than 100 TV channels, delivered server room
+                  relocation work, and maintained stable uptime in demanding
+                  production environments.
+                </p>
+              </div>
 
-          <div className="space-y-5 text-base leading-8 text-white/72">
-            <p>
-              I have worked across monitoring systems, Linux servers, server
-              rooms, electrical support, cooling systems, and technical issue
-              resolution. My background combines hands-on maintenance with team
-              leadership and operational responsibility.
-            </p>
-            <p>
-              I have supported more than 100 TV channels, delivered server room
-              relocation work, and maintained stable system uptime in demanding
-              production environments.
-            </p>
+              <a
+                href="#contact"
+                className="mt-8 inline-flex items-center gap-3 rounded-[10px] bg-[#ffcb05] px-6 py-3 text-sm font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
+              >
+                <span className="!text-black">Download Resume</span>
+                <span aria-hidden="true" className="!text-black">
+                  ↓
+                </span>
+              </a>
+            </div>
 
-            <a
-              href="/MATV Engineer_SoeWai.pdf"
-              download
-              className="inline-flex items-center gap-3 rounded-[8px] bg-[#ffcb05] px-6 py-3 text-sm font-semibold !text-black transition hover:bg-[#ffd83d] hover:!text-black"
-            >
-              <span className="!text-black">Download CV</span>
-              <span aria-hidden="true" className="!text-black">
-                ↓
-              </span>
-            </a>
+            <aside className="rounded-[24px] border border-white/10 bg-[#111111]">
+              <div className="relative overflow-hidden rounded-t-[24px] border-b border-white/10 bg-[linear-gradient(180deg,rgba(255,203,5,0.14),rgba(255,203,5,0)_42%),linear-gradient(145deg,#181818,#0a0a0a)] px-6 py-8">
+                <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(#ffffff_0.8px,transparent_0.8px)] [background-size:8px_8px]" />
+                <div className="relative flex flex-col items-center text-center">
+                  <span className="flex h-28 w-28 items-center justify-center rounded-full border border-white/10 bg-black/30 text-3xl font-semibold text-[#ffcb05]">
+                    SW
+                  </span>
+                  <p className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-white">
+                    Soe Wai
+                  </p>
+                  <p className="mt-2 text-sm text-white/55">
+                    MATV Engineer &amp; Technical Specialist
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-px bg-white/10">
+                <div className="bg-[#111111] px-5 py-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                    Focus
+                  </p>
+                  <p className="mt-2 text-sm text-white/82">Broadcast Systems</p>
+                </div>
+                <div className="bg-[#111111] px-5 py-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                    Base
+                  </p>
+                  <p className="mt-2 text-sm text-white/82">Bangkok, Thailand</p>
+                </div>
+                <div className="bg-[#111111] px-5 py-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                    Strength
+                  </p>
+                  <p className="mt-2 text-sm text-white/82">Problem Solving</p>
+                </div>
+                <div className="bg-[#111111] px-5 py-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                    Support
+                  </p>
+                  <p className="mt-2 text-sm text-white/82">Linux &amp; Monitoring</p>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
 
-        <section
-          id="services"
-          className="grid gap-6 border-t border-white/10 px-6 py-10 sm:px-10 lg:grid-cols-3 lg:px-14"
-        >
-          {stats.map((stat) => (
-            <article
-              key={stat.label}
-              className="rounded-[14px] border border-white/10 bg-[#121212] p-6"
-            >
-              <p className="text-4xl font-semibold text-white">{stat.value}</p>
-              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/62">
-                {stat.label}
-              </p>
-            </article>
-          ))}
+        <section className="border-t border-white/10 px-6 py-14 sm:px-10 lg:px-14">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div id="experience">
+              <div className="flex items-center gap-3">
+                <span className="text-[#ffcb05]">✦</span>
+                <h2 className="text-xl font-medium text-white">Experience</h2>
+              </div>
+              <div className="mt-6 space-y-4">
+                {experiences.map((item) => (
+                  <article
+                    key={item.title}
+                    className="rounded-[22px] border border-white/10 bg-[#101010] p-6"
+                  >
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 className="text-2xl font-semibold tracking-[-0.04em] text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-white/55">{item.company}</p>
+                      </div>
+                      <span className="w-fit rounded-full border border-[#ffcb05]/20 bg-[#ffcb05]/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-[#ffcb05]">
+                        {item.period}
+                      </span>
+                    </div>
+                    <p className="mt-5 max-w-[520px] text-sm leading-7 text-white/68">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div id="education">
+              <div className="flex items-center gap-3">
+                <span className="text-[#ffcb05]">✦</span>
+                <h2 className="text-xl font-medium text-white">Education</h2>
+              </div>
+              <div className="mt-6 space-y-4">
+                {education.map((item) => (
+                  <article
+                    key={item.title}
+                    className="rounded-[22px] border border-white/10 bg-[#101010] p-6"
+                  >
+                    <p className="text-xs uppercase tracking-[0.18em] text-[#ffcb05]">
+                      {item.subtitle}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-white/68">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
         <section
           id="contact"
-          className="border-t border-white/10 bg-[#0f0f0f] px-6 py-12 sm:px-10 lg:px-14 lg:py-14"
+          className="border-t border-white/10 bg-[#0f0f0f] px-6 py-14 sm:px-10 lg:px-14"
         >
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.25em] text-[#ffcb05]">
                 Contact
               </p>
-              <h2 className="mt-4 max-w-[520px] text-4xl font-semibold leading-[0.95] text-white sm:text-5xl lg:text-6xl">
+              <h2 className="mt-4 max-w-[520px] text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
                 Open to engineering opportunities.
               </h2>
             </div>
 
-            <div className="w-full max-w-2xl rounded-[16px] border border-white/10 bg-[#121212]">
+            <div className="w-full max-w-2xl rounded-[20px] border border-white/10 bg-[#121212]">
               <div className="grid gap-0 text-sm sm:grid-cols-[140px_1fr]">
                 <div className="border-b border-white/10 px-5 py-4 uppercase tracking-[0.18em] text-white/45 sm:border-r">
                   Phone
